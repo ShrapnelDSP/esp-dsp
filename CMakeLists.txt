@@ -212,7 +212,7 @@ target_sources(esp_dsp PRIVATE
                     "modules/kalman/ekf_imu13states/ekf_imu13states.cpp"
     )
 
-target_include_directories(esp_dsp PUBLIC ${COMPONENT_ADD_INCLUDEDIRS})
+target_include_directories(esp_dsp SYSTEM PUBLIC ${COMPONENT_ADD_INCLUDEDIRS})
 target_include_directories(esp_dsp PRIVATE ${COMPONENT_PRIV_INCLUDEDIRS})
 
 target_link_libraries(esp_dsp PUBLIC esp_common)
