@@ -14,15 +14,11 @@ typedef union sc16_u
     uint32_t data;
 }sc16_t;
 
-typedef union fc32_u
+typedef struct
 {
-    struct
-    {
-        float re;
-        float im;
-    };
-    uint64_t data;
-}fc32_t;
+    float re;
+    float im;
+} fc32_t;
 
 typedef struct image2d_s
 {
