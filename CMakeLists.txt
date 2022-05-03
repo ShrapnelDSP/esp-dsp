@@ -148,72 +148,13 @@ if("${IDF_VERSION_MAJOR}.${IDF_VERSION_MINOR}" VERSION_EQUAL "4.0")
 endif()
 else()
 add_library(esp_dsp STATIC)
-target_sources(esp_dsp PRIVATE
-                    "modules/common/misc/dsps_pwroftwo.cpp"
-                    "modules/dotprod/float/dsps_dotprod_f32_ansi.c"
-                    "modules/dotprod/float/dsps_dotprode_f32_ansi.c"
-
-                    "modules/dotprod/fixed/dsps_dotprod_s16_ansi.c"
-
-                    "modules/dotprod/float/dspi_dotprod_f32_ansi.c"
-                    "modules/dotprod/float/dspi_dotprod_off_f32_ansi.c"
-                    "modules/dotprod/fixed/dspi_dotprod_s16_ansi.c"
-                    "modules/dotprod/fixed/dspi_dotprod_u16_ansi.c"
-                    "modules/dotprod/fixed/dspi_dotprod_s8_ansi.c"
-                    "modules/dotprod/fixed/dspi_dotprod_u8_ansi.c"
-                    "modules/dotprod/fixed/dspi_dotprod_off_s16_ansi.c"
-                    "modules/dotprod/fixed/dspi_dotprod_off_u16_ansi.c"
-                    "modules/dotprod/fixed/dspi_dotprod_off_s8_ansi.c"
-                    "modules/dotprod/fixed/dspi_dotprod_off_u8_ansi.c"
-
-                    "modules/matrix/float/dspm_mult_f32_ansi.c"
-                    "modules/matrix/fixed/dspm_mult_s16_ansi.c"
-                    "modules/matrix/mat/mat.cpp"
-                    "modules/math/mulc/float/dsps_mulc_f32_ansi.c"
-                    "modules/math/addc/float/dsps_addc_f32_ansi.c"
-                    "modules/math/mulc/fixed/dsps_mulc_s16_ansi.c"
-                    "modules/math/add/float/dsps_add_f32_ansi.c"
-                    "modules/math/add/fixed/dsps_add_s16_ansi.c"
-                    "modules/math/sub/float/dsps_sub_f32_ansi.c"
-                    "modules/math/mul/float/dsps_mul_f32_ansi.c"
-                    "modules/math/mul/fixed/dsps_mul_s16_ansi.c"
-                    "modules/math/sqrt/float/dsps_sqrt_f32_ansi.c"
-
-                    "modules/fft/float/dsps_fft2r_fc32_ansi.c"
-                    "modules/fft/float/dsps_fft4r_fc32_ansi.c"
-                    "modules/fft/float/dsps_fft2r_bitrev_tables_fc32.c"
-                    "modules/fft/float/dsps_fft4r_bitrev_tables_fc32.c"
-                    "modules/fft/fixed/dsps_fft2r_sc16_ansi.c"
-
-                    "modules/dct/float/dsps_dct_f32.c"
-                    "modules/support/snr/float/dsps_snr_f32.cpp"
-                    "modules/support/sfdr/float/dsps_sfdr_f32.cpp"
-                    "modules/support/misc/dsps_d_gen.c"
-                    "modules/support/misc/dsps_h_gen.c"
-                    "modules/support/misc/dsps_tone_gen.c"
-                    "modules/support/view/dsps_view.cpp"
-                    "modules/windows/hann/float/dsps_wind_hann_f32.c"
-                    "modules/windows/blackman/float/dsps_wind_blackman_f32.c"
-                    "modules/windows/blackman_harris/float/dsps_wind_blackman_harris_f32.c"
-                    "modules/windows/blackman_nuttall/float/dsps_wind_blackman_nuttall_f32.c"
-                    "modules/windows/nuttall/float/dsps_wind_nuttall_f32.c"
-                    "modules/windows/flat_top/float/dsps_wind_flat_top_f32.c"
-                    "modules/conv/float/dsps_conv_f32_ansi.c"
-                    "modules/conv/float/dsps_corr_f32_ansi.c"
-                    "modules/conv/float/dsps_ccorr_f32_ansi.c"
-                    "modules/iir/biquad/dsps_biquad_f32_ansi.c"
-                    "modules/iir/biquad/dsps_biquad_gen_f32.c"
-                    "modules/fir/float/dsps_fir_f32_ansi.c"
-                    "modules/fir/float/dsps_fir_init_f32.c"
-                    "modules/fir/float/dsps_fird_f32_ansi.c"
-                    "modules/fir/float/dsps_fird_init_f32.c"
-# EKF files
-                    "modules/kalman/ekf/common/ekf.cpp"
-                    "modules/kalman/ekf_imu13states/ekf_imu13states.cpp"
-    )
+target_sources(esp_dsp PRIVATE ${COMPONENT_SRCS})
 
 target_include_directories(esp_dsp SYSTEM PUBLIC ${COMPONENT_ADD_INCLUDEDIRS})
 target_include_directories(esp_dsp PRIVATE ${COMPONENT_PRIV_INCLUDEDIRS})
+
+# Format specifiers are not correct on 64-bit platform, ignore these warnings.
+target_compile_options(esp_dsp PRIVATE -Wno-format)
 
 target_link_libraries(esp_dsp PUBLIC esp_common)
 target_link_libraries(esp_dsp PUBLIC log)
