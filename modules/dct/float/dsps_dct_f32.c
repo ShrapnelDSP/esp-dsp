@@ -14,6 +14,7 @@
 
 #include "dsp_common.h"
 #include <math.h>
+#include <stddef.h>
 
 #include "dsps_dct.h"
 #include "dsps_fft2r.h"

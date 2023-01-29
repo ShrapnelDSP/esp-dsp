@@ -30,7 +30,7 @@ set(COMPONENT_SRCS  "modules/common/misc/dsps_pwroftwo.cpp"
                     "modules/dotprod/fixed/dspi_dotprod_u8_aes3.S"
                     "modules/dotprod/fixed/dspi_dotprod_off_u8_aes3.S"
                     "modules/dotprod/fixed/dspi_dotprod_off_s8_aes3.S"
-                    
+
 
                     "modules/matrix/float/dspm_mult_3x3x1_f32_ae32.S"
                     "modules/matrix/float/dspm_mult_3x3x3_f32_ae32.S"
@@ -74,7 +74,7 @@ set(COMPONENT_SRCS  "modules/common/misc/dsps_pwroftwo.cpp"
                     "modules/fft/fixed/dsps_fft2r_sc16_ae32.S"
                     "modules/fft/fixed/dsps_fft2r_sc16_ansi.c"
                     "modules/fft/fixed/dsps_fft2r_sc16_aes3.S"
-                    
+
                     "modules/dct/float/dsps_dct_f32.c"
                     "modules/support/snr/float/dsps_snr_f32.cpp"
                     "modules/support/sfdr/float/dsps_sfdr_f32.cpp"
@@ -147,17 +147,17 @@ if("${IDF_VERSION_MAJOR}.${IDF_VERSION_MINOR}" VERSION_EQUAL "4.0")
     target_link_libraries(${COMPONENT_LIB} INTERFACE -lstdc++ -lc)
 endif()
 else()
-add_library(esp_dsp STATIC)
-target_sources(esp_dsp PRIVATE ${COMPONENT_SRCS})
+add_library(esp-dsp STATIC)
+target_sources(esp-dsp PRIVATE ${COMPONENT_SRCS})
 
-target_include_directories(esp_dsp SYSTEM PUBLIC ${COMPONENT_ADD_INCLUDEDIRS})
-target_include_directories(esp_dsp PRIVATE ${COMPONENT_PRIV_INCLUDEDIRS})
+target_include_directories(esp-dsp SYSTEM PUBLIC ${COMPONENT_ADD_INCLUDEDIRS})
+target_include_directories(esp-dsp PRIVATE ${COMPONENT_PRIV_INCLUDEDIRS})
 
 # Format specifiers are not correct on 64-bit platform, ignore these warnings.
-target_compile_options(esp_dsp PRIVATE -Wno-format)
+target_compile_options(esp-dsp PRIVATE -Wno-format)
 
-target_link_libraries(esp_dsp PUBLIC esp_common)
-target_link_libraries(esp_dsp PUBLIC log)
-target_link_libraries(esp_dsp PUBLIC esp_hw_support)
+target_link_libraries(esp-dsp PUBLIC esp_common)
+target_link_libraries(esp-dsp PUBLIC log)
+target_link_libraries(esp-dsp PUBLIC esp_hw_support)
 
 endif()

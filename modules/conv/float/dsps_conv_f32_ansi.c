@@ -14,6 +14,7 @@
 
 #include "dsps_conv.h"
 #include "esp_log.h"
+#include <stddef.h>
 
 static const char *TAG = "dsps_conv";
 

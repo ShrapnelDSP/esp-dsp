@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include "dsps_mulc.h"
+#include <stddef.h>
 
 esp_err_t dsps_mulc_f32_ansi(const float *input, float *output, int len, float C, int step_in, int step_out)
 {

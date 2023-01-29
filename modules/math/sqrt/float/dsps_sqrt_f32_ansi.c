@@ -13,7 +13,7 @@
 // limitations under the License.
 
 #include "dsps_sqrt.h"
-#include <math.h>
+#include <stddef.h>
 
 
 inline float dsps_sqrtf_f32_ansi(float f)

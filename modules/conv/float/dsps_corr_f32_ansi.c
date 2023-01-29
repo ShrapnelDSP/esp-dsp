@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include "dsps_corr.h"
+#include <stddef.h>
 
 esp_err_t dsps_corr_f32_ansi(const float *Signal, const int siglen, const float *Pattern, const int patlen, float *dest)
 {

@@ -2,6 +2,7 @@
 #include <math.h>
 #include "esp_log.h"
 #include <limits>
+#include <cstdio>
 
 void dsps_view(const float *data, int32_t len, int width, int height, float min, float max, char view_char)
 {

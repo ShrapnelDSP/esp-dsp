@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include "dsp_common.h"
+#include <stddef.h>
 
 bool dsp_is_power_of_two(int x)
 {

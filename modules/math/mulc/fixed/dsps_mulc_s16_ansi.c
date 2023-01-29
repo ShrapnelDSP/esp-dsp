@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include "dsps_mulc.h"
+#include <stddef.h>
 
 esp_err_t dsps_mulc_s16_ansi(const int16_t *input, int16_t *output, int len, int16_t C, int step_in, int step_out)
 {

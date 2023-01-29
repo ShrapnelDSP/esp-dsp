@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include "dsps_add.h"
+#include <stddef.h>
 
 esp_err_t dsps_add_s16_ansi(const int16_t *input1, const int16_t *input2, int16_t *output, int len, int step1, int step2, int step_out, int shift)
 {
