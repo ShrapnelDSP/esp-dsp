@@ -148,6 +148,8 @@ if("${IDF_VERSION_MAJOR}.${IDF_VERSION_MINOR}" VERSION_EQUAL "4.0")
 endif()
 else()
 add_library(esp-dsp STATIC)
+add_library(idf::esp-dsp ALIAS esp-dsp)
+
 target_sources(esp-dsp PRIVATE ${COMPONENT_SRCS})
 
 target_include_directories(esp-dsp SYSTEM PUBLIC ${COMPONENT_ADD_INCLUDEDIRS})
@@ -156,8 +158,8 @@ target_include_directories(esp-dsp PRIVATE ${COMPONENT_PRIV_INCLUDEDIRS})
 # Format specifiers are not correct on 64-bit platform, ignore these warnings.
 target_compile_options(esp-dsp PRIVATE -Wno-format)
 
-target_link_libraries(esp-dsp PUBLIC esp_common)
-target_link_libraries(esp-dsp PUBLIC log)
-target_link_libraries(esp-dsp PUBLIC esp_hw_support)
+target_link_libraries(esp-dsp PUBLIC idf::esp_common)
+target_link_libraries(esp-dsp PUBLIC idf::log)
+target_link_libraries(esp-dsp PUBLIC idf::esp_hw_support)
 
 endif()
