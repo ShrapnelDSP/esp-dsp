@@ -173,6 +173,23 @@ set(include_dirs                "modules/dotprod/include"
 set(priv_include_dirs           "modules/dotprod/float"
                                 "modules/dotprod/fixed")
 
+if(ESP_PLATFORM)
 idf_component_register(SRCS ${srcs}
                       INCLUDE_DIRS ${include_dirs}
                       PRIV_INCLUDE_DIRS ${priv_include_dirs})
+else()
+    add_library(esp-dsp STATIC)
+    add_library(idf::esp-dsp ALIAS esp-dsp)
+
+    target_sources(esp-dsp PRIVATE ${srcs})
+
+    target_include_directories(esp-dsp SYSTEM PUBLIC ${include_dirs})
+    target_include_directories(esp-dsp PRIVATE ${priv_include_dirs})
+
+    # Format specifiers are not correct on 64-bit platform, ignore these warnings.
+    # target_compile_options(esp-dsp PRIVATE -Wno-format)
+
+    target_link_libraries(esp-dsp PUBLIC idf::esp_common)
+    target_link_libraries(esp-dsp PUBLIC idf::log)
+    target_link_libraries(esp-dsp PUBLIC idf::esp_hw_support)
+endif()
