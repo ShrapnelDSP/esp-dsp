@@ -1,3 +1,4 @@
+#include <cstddef>
 #include "dsps_view.h"
 #include <math.h>
 #include "esp_log.h"

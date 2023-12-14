@@ -7,6 +7,7 @@
 #ifndef _dsps_mem_H_
 #define _dsps_mem_H_
 
+#include <stddef.h>
 #include "dsp_err.h"
 #include "dsp_common.h"
 #include "dsps_mem_platform.h"

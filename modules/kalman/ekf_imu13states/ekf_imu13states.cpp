@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include <cstddef>
 #include "ekf_imu13states.h"
 
 ekf_imu13states::ekf_imu13states() : ekf(13, 18),
