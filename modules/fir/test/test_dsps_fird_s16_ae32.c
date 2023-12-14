@@ -8,6 +8,7 @@
 #include <string.h>
 #include <malloc.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include "unity.h"
 #include "dsp_platform.h"
 #include "esp_log.h"

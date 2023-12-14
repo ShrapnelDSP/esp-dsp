@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include <stddef.h>
 #include "dsps_add.h"
 
 esp_err_t dsps_add_f32_ansi(const float *input1, const float *input2, float *output, int len, int step1, int step2, int step_out)

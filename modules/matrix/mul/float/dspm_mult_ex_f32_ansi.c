@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include <stddef.h>
 #include "dspm_mult.h"
 
 // Matrix A(m,n), m - amount or rows, n - amount of columns

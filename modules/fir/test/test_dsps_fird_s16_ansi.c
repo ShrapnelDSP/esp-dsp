@@ -5,6 +5,7 @@
  */
 
 #include <malloc.h>
+#include <stddef.h>
 #include <stdint.h>
 #include "unity.h"
 #include "dsp_platform.h"

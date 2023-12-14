@@ -5,6 +5,7 @@
  */
 
 
+#include <stddef.h>
 #include "dsps_cplx_gen.h"
 #include "dsp_common.h"
 #include "esp_log.h"

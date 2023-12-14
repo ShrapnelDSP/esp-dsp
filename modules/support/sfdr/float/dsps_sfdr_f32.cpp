@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include <stddef.h>
 #include "dsps_sfdr.h"
 #include "dsps_fft2r.h"
 #include "dsp_common.h"

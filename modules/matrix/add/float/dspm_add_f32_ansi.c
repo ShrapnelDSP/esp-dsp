@@ -5,6 +5,7 @@
  */
 
 
+#include <stddef.h>
 #include "dspm_add.h"
 
 esp_err_t dspm_add_f32_ansi(const float *input1, const float *input2, float *output, int rows, int cols, int padd1, int padd2, int padd_out, int step1, int step2, int step_out)
